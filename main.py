@@ -1,6 +1,4 @@
-from core.services import LLMService
+from api import app
 
-model = LLMService.get_model("ollama", model="llama3.1")
-response = model.run("Quem é o atual presidente dos Estados unidos?")
-
-print(response)
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
