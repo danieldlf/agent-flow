@@ -10,6 +10,6 @@ class BaseLLMClient(ABC):
         pass
 
     @abstractmethod
-    def run(self, prompt: str, **kwargs) -> str:
+    def invoke(self, prompt: str, **kwargs) -> str:
         """Generates an answer based on a prompt"""
         pass
