@@ -8,7 +8,7 @@ class LLMService():
     def get_model(provider: str, **kwargs) -> BaseLLMClient:
         """Get the correct service for the chosen model/provider"""
         if provider == "ollama":
-            return OllamaLLMClient(model=kwargs.get("model", "llama3.1")).model
+            return OllamaLLMClient(**kwargs).model
         
         # Add other providers
         

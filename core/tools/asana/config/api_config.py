@@ -1,4 +1,12 @@
-from asana import Configuration, ApiClient, TasksApi, UsersApi, TeamsApi
+from asana import (
+    Configuration, 
+    ApiClient, 
+    TasksApi, 
+    UsersApi, 
+    TeamsApi, 
+    UserTaskListsApi,
+    ProjectsApi
+    )
 from config import Config
 
 class AsanaAPIConfig:
@@ -24,6 +32,12 @@ class AsanaAPIConfig:
     
     def get_teams_api(self):
         return TeamsApi(self.api_client)
+    
+    def get_user_task_lists_api(self):
+        return UserTaskListsApi(self.api_client)
+    
+    def get_projects_api(self):
+        return ProjectsApi(self.api_client)
 
     @property
     def api_client(self):

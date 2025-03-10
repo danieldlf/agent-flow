@@ -6,15 +6,18 @@ from langgraph.prebuilt import ToolNode
 
 from core.services import LLMService
 from core.tools.asana import (
-    get_user,
-    # get_users_for_workspace
+    #get_user,
+    list_project_tasks,
+    list_user_tasks,
+    #search_task,
+    get_all_projects
 )
 
-tools = [get_user]
+tools = [list_project_tasks]
 
 tool_node = ToolNode(tools)
 
-model = LLMService().get_model("ollama", model="llama3.1").bind_tools(tools)
+model = LLMService().get_model("ollama", model="llama3.1", temperature=0.0, num_predict=-1).bind_tools(tools)
 
 def should_continue(state: MessagesState) -> Literal["tools", END]: # type: ignore
     messages = state["messages"]
